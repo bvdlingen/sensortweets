@@ -1,8 +1,6 @@
 # sensortweets
 
-Yet another twitterbot
-
-This simple bot is doing two things:
+Yet another twitterbot ... This simple bot is doing two things:
 
 1.Fetching a daily png image from graphana
 (public graphana instance without image rendering)
@@ -16,7 +14,9 @@ requirements:
 - npm
 - capture-website-cli
 - python
-- 
+- systemd or cron
+- system sandboxing should be enabled
+
 Only docker is needed for the alternative script 
 
 Local initiative @ partij voor de dieren Utrecht, The Netherlands. 
