@@ -1,0 +1,4 @@
+#!/bin/bash
+# Uses bash to parse the file.
+capture-website --delay=11 --output=last24hours.png "http://api-rrd.madavi.de:3000/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&theme=dark&var-chipID=esp8266-12122974&var-type=DHT22&var-query0=sensors&refresh=1d&kiosk=tv&viewPanel=12"
+
