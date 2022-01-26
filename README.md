@@ -11,6 +11,12 @@ This simple bot is doing two things:
 
 3. The final script is meant to be scheduled using cron or a systemd timer.
 
+requirements:
+- nodejs
+- npm
+- capture-website-cli
+- python
+Only docker is needed for the alternative script 
 
 Local initiative @ partij voor de dieren Utrecht, The Netherlands. 
 
