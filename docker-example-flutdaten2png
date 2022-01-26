@@ -1,2 +1,5 @@
 #!/bin/bash
 docker run --cap-add=SYS_ADMIN timoschwarzer/capture-website-cli capture-website --delay=12  --output=24.png "http://api-rrd.madavi.de:3000/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&theme=dark&va12122974&var-type=DHT22&var-query0=sensors&refresh=1d&kiosk=tv&viewPanel=12" > /tmp/24.png
+
+#requirements:
+#docker
