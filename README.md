@@ -1,9 +1,8 @@
 # sensortweets
 
-Yet another twitterbot ... This simple bot is doing two things:
+Yet another twitterbot ... This simple bot is doing a few things:
 
-1.Fetching a daily png image from graphana
-(public graphana instance without image rendering)
+1. Fetching a daily png image from graphana (a public graphana instance without image rendering functionality)
 
 2. posting it to twitter
 
