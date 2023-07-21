@@ -1,5 +1,21 @@
 #!/bin/bash
-docker run --cap-add=SYS_ADMIN timoschwarzer/capture-website-cli capture-website --delay=12  --output=24.png "http://api-rrd.madavi.de:3000/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&theme=dark&va12122974&var-type=DHT22&var-query0=sensors&refresh=1d&kiosk=tv&viewPanel=12" > /tmp/24.png
 
-#requirements:
-#docker
+# improved version
+URL="http://api-rrd.madavi.de:3000/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&theme=dark&va12122974&var-type=DHT22&var-query0=sensors&refresh=1d&kiosk=tv&viewPanel=12"
+OUTPUT_FILE="/tmp/24.png"
+
+# Check if Docker is installed and running
+if ! command -v docker &> /dev/null
+then
+    echo "Docker is not installed. Please install Docker and try again."
+    exit 1
+fi
+
+# Run Docker command to capture website screenshot
+if ! docker run --cap-add=SYS_ADMIN timoschwarzer/capture-website-cli capture-website --delay=12 --output=24.png "$URL" > "$OUTPUT_FILE"
+then
+    echo "Failed to capture website screenshot. Please check the Docker command and try again."
+    exit 1
+fi
+
+echo "Screenshot successful"
