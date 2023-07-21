@@ -1,36 +1,29 @@
-#!/bin/bash
+ #!/bin/bash
 
 # Define variables
 URL="http://api-rrd.madavi.de:3000/grafana/d/GUaL5aZMz/pm-sensors?orgId=1&theme=dark&var-chipID=esp8266-12122974&var-type=DHT22&var-query0=sensors&refresh=1d&kiosk=tv&viewPanel=12"
 OUTPUT_FILE="last24hours.png"
 
-# Check if Node.js is installed
-if ! command -v node &> /dev/null
-then
-    echo "Node.js is not installed. Please install Node.js and try again."
-    exit 1
-fi
+# Function to check if a command is installed
+check_command() {
+    if ! command -v "$1" &> /dev/null
+    then
+        echo "$1 is not installed. Please install $1 and try again." >&2
+        exit 1
+    fi
+}
 
-# Check if npm is installed
-if ! command -v npm &> /dev/null
-then
-    echo "npm is not installed. Please install npm and try again."
-    exit 1
-fi
-
-# Check if git is installed
-if ! command -v git &> /dev/null
-then
-    echo "git is not installed. Please install git and try again."
-    exit 1
-fi
-
-# Check if capture-website-cli is installed
-if ! command -v capture-website &> /dev/null
-then
-    echo "capture-website-cli is not installed. Please install capture-website-cli and try again."
-    exit 1
-fi
+# Check if required commands are installed
+check_command node
+check_command npm
+check_command git
+check_command capture-website
 
 # Run capture-website command to capture website screenshot
-if ! capture-website --
+if ! capture-website --delay=11 --output="$OUTPUT_FILE" "$URL"
+then
+    echo "Failed to capture website screenshot. Please check the capture-website command and try again." >&2
+    exit 1
+fi
+
+echo "Website screenshot captured successfully."
